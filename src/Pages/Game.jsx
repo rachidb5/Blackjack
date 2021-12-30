@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 
 function Game() {
   const { playerOne, 
-    playerTwo, 
     data, 
     data2, 
     points1,
@@ -73,12 +72,13 @@ function Game() {
       <Link to='/'>
         <Logo />
       </Link>
+      {points1 < 22 ? null : <span className="text-light">Você ultrapassou 21 pontos :(</span>}
       <div className="container">
         <Score name={ playerOne } score={points1} />
         <Cards data={ data } cardsNumber={cardsNumber1} onClick={ () => set1()} cartas={cartas1} />
       </div>
       <div className="container">
-        <Score name={ playerTwo } score={points2} />
+        <Score name="Dealer" score={points2} />
         <Cards data={ data2 }  cardsNumber={cardsNumber2} onClick={ () => set2()} cartas={cartas2}/>
       </div>
     </div>
